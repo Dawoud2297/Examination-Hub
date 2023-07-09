@@ -1,24 +1,24 @@
 import axios from "axios";
+import { sharedUrl } from "./url-share";
 
 const signup = async (userData) => {
     const options = {
         method: 'POST',
-        url: 'https://good-lime-horse-robe.cyclic.app/v1/signup',
+        url: `${sharedUrl}/v1/signup`,
         data: {
             first_name: userData.firstName,
             last_name: userData.lastName,
             password: userData.password,
             email: userData.email,
-            role: userData.role
+            role: userData.role,
+            stCode : userData.code
         }
     }
 
     try {
-        const res = await axios.request(options);
-        console.log(res)
-        return res;
+        let res = await axios.request(options);
+        return res.data;
     } catch (error) {
-        console.log(error)
         return error;
     }
 }

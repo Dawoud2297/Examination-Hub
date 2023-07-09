@@ -1,15 +1,19 @@
 .container {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
-    grid-row: 6/14;
     grid-column: 4/13;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     display: grid;
+    overflow-y: scroll;
+    /* height: 40em; */
 }
 
 .choices {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin-top: 20px;
+    position: sticky;
+    top: 0;
+    background: var(--faded);
+    padding: 15px;
 }
 
 .choices ul {
@@ -36,6 +40,7 @@
 }
 
 .item {
+    padding: 0 10%;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -61,6 +66,12 @@
     padding: 0 20px;
     box-shadow: 0 0 0.09em 0 rgba(0, 0, 0, 0.5);
     cursor: pointer;
+}
+
+.choiceData p {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .createdAt {

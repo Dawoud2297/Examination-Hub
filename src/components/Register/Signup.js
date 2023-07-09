@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import signup from '../../Styles/Register/Signup.module.css';
 import { Link } from 'react-router-dom';
-import { signupData } from '../../store/signup';
+import { authSignup, selectAuthType } from '../../store/auth';
 import { useDispatch } from 'react-redux';
-
+import { emailErrors } from '../../store/auth';
 
 const Signup = (props) => {
-  const [user, setUser] = useState({ firstName: '', lastName: '', email: '', password: '', role: props.identity })
+  const [user, setUser] = useState({ firstName: '', lastName: '', email: '', password: '', role: props.identity, code : '' })
 
   const dispatch = useDispatch();
-
-  console.log(user)
+  dispatch(selectAuthType('signup'));
 
   const backward = () => {
     props.setFirstTime(true)
@@ -23,12 +22,15 @@ const Signup = (props) => {
       ...user,
       [name]: value
     });
+    dispatch(emailErrors(''));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(signupData(user))
+    dispatch(authSignup(user))
   }
+
+  console.log(user)
 
   return (
     <div className={signup.signupContainer}>
@@ -72,6 +74,8 @@ const Signup = (props) => {
             <input
               type='email'
               name='email'
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              title='person123@gmail.com'
               value={user.email}
               onChange={handleChange}
               placeholder='Work email address'
@@ -86,22 +90,52 @@ const Signup = (props) => {
               value={user.password}
               onChange={handleChange}
               placeholder='Password ( 8 or more characters )'
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+              title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+              required
+            />
+          </label>
+          <label className={signup.code}>
+            <input
+              type='number'
+              name='code'
+              value={user.code}
+              onChange={handleChange}
+              placeholder='College Code'
+              title={props.identity === 'instructor' ? 'Instructor Code' : 'Student Code'}
               required
             />
           </label>
           {
-            props.identity === 'instructor' ? (
-              <label className={signup.key}>
-                {/* <input type='text' name='key' placeholder='key' required/> */}
-              </label>
-            ) : (
-              <label className={signup.id}>
-                {/* <input type='text' name='id' placeholder='ID' required/> */}
-              </label>
-            )
+            // props.identity === 'instructor' ? (
+            //   <label className={signup.key}>
+            //   </label>
+            // ) : (
+            //   <label className={signup.id}>
+            //   </label>
+            // )
           }
-          <button type='submit' className={signup.submit}>Create Profile</button>
-          <p>Already have an account? <Link to='/auth/login'>Log In</Link></p>
+          <button
+            type='submit'
+            className={`${props.user_auth_error ? signup.userExists : (props.loading ? signup.loading : signup.submit)}`}
+            disabled={props.user_auth_error || props.loading}
+          >
+            {
+              props.user_auth_error ? (
+                <>
+                  &#9888;
+                  {/* &#9888; {props.user_auth_error}...try again */}
+                  {
+                    props.user_auth_error === 'Operation `users.findOne()` buffering timed out after 10000ms' ? 'Server Is Down Now' :
+                      props.user_auth_error
+                  }
+                </>
+              ) : props.loading ? ('Loading...') : (
+                'Create Acount'
+              )
+            }
+          </button>
+          <p>Already have an account? <Link to='/auth/login' onClick={() => props.setAuthType('login')}>Log In</Link></p>
         </form>
       </div>
     </div>
