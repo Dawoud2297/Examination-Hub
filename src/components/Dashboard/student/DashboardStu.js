@@ -2,28 +2,26 @@ import React, { useEffect, useState } from 'react'
 import daBody from '../../../Styles/Dashboard/student/Dashboard.module.css'
 import QuestionBank from '../QuestionBank'
 import { useDispatch, useSelector } from 'react-redux'
-import { createProfileReq } from '../../../store/createProfile'
 import { totalStudentsExamsReq } from '../../../store/studentSubmission'
 import Void from '../../Void'
 import { useNavigate } from 'react-router-dom'
 import identityPath from '../../../helpers/identityPath'
 import sortByDate from '../../../helpers/sortByDate'
+import UserProfile from '../UserProfile'
 
 const DashboardStu = (props) => {
 
   const userAdditional = JSON.parse(localStorage.getItem('additional'));
   const userId = userAdditional?.id, user_token = userAdditional?.additional?.user_token
-  const { totalStuExams } = useSelector((state) => state.studentSubmission)
-
-  const initialState = () => {
-    return { userName: '', bio: '', userPic: '', user_token }
-  }
-
   const [questionBank, setQuestionBank] = useState(false)
-  const [editProfile, setEditProfile] = useState(false)
-  const [editProfileData, setEditProfileData] = useState(initialState)
-
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(totalStudentsExamsReq(user_token))
+  }, [dispatch, user_token])
+
+
+  const { totalStuExams } = useSelector((state) => state.studentSubmission)
 
   const questionsBank = () => {
     setQuestionBank(true)
@@ -34,34 +32,6 @@ const DashboardStu = (props) => {
     });
   }
 
-  const editProfileMode = () => {
-    setEditProfile(!editProfile)
-  }
-
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setEditProfileData({
-      ...editProfileData,
-      [name]: value
-    })
-  }
-
-
-
-  const profileData = {
-    photo: editProfileData.userPic,
-    bio: editProfileData.bio,
-    userName: editProfileData.userName,
-    token: editProfileData.user_token
-  }
-
-
-  const handleSubmit = () => {
-    dispatch(createProfileReq(profileData))
-    setEditProfile(false)
-    setEditProfileData(initialState)
-  }
-
   const naivgate = useNavigate();
   const openExam = (id) => {
     localStorage.setItem('openExamId', JSON.stringify(id))
@@ -70,71 +40,14 @@ const DashboardStu = (props) => {
 
   let sortedData = totalStuExams ? sortByDate(totalStuExams) : [];
 
-  
-  useEffect(() => {
-    dispatch(totalStudentsExamsReq(user_token))
-  }, [dispatch, user_token, props.studentSubmitted])
-
 
   return (
     <>
       {
         <div className={daBody.container}>
           <div className={daBody.leftHand}>
-            <div className={daBody.photo}>
-              <img
-                // src={props.photo ? (
-                //   props.photo
-                // ) : (
-                //   '/assets/placeholder-doctor.jpg'
-                // )
-                // }
-                src='/assets/placeholder-doctor.jpg'
-                height="80"
-                width="80"
-                alt='!!'
-                title={props.email}
-              />
-              <p
-                title={props.email}
-              >
-                {props.firstName} {props.lastName} <br />
-                {
-                  editProfile ?
-                    <input
-                      type='text'
-                      name='userName'
-                      value={editProfileData.userName}
-                      onChange={handleChange}
-                    /> : <span>{props.userName}</span>
-                }
-              </p>
-              <div
-                onClick={editProfileMode}
-                title='Edit Profile'
-              >
-                {
-                  editProfile ? <>&#128473;</> : <>&#x270E;</>
-                }
-              </div>
-            </div>
+            <UserProfile user_token={user_token} daBody={daBody} />
             <div className={daBody.leftHandBody}>
-              <div className={daBody.bio}>
-                {
-                  editProfile ? <textarea
-                    type='text'
-                    name="bio"
-                    value={editProfileData.bio}
-                    onChange={handleChange}
-                    maxLength="419"
-                  ></textarea> : <p>
-                    {props.bio}
-                  </p>
-                }
-                {
-                  editProfile && <button onClick={handleSubmit}>Submit</button>
-                }
-              </div>
               <p className={daBody.stCode}>Student Code: {props.stCode}</p>
               <div className={daBody.otherShortHands}>
                 <div className={daBody.line}></div>

@@ -8,12 +8,18 @@
 .examHeader {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     padding: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .examHeader h1 {
     border-bottom: 1px solid black;
     width: 50%;
     padding-bottom: 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .examData {
@@ -26,6 +32,9 @@
 .examData * {
     font-weight: 700;
     font-size: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .examData p:nth-child(1) {
@@ -99,8 +108,9 @@
 }
 
 .titleAndDes {
+    /* width: 50%; */
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    /* grid-template-columns: 1fr 6fr; */
     align-items: center;
 }
 
@@ -128,7 +138,7 @@
     font-size: 20px;
 }
 
-.examDataExamTime button{
+.examDataExamTime button {
     background: var(--inverse);
     color: var(--faded);
     padding: 0.5em;
@@ -203,7 +213,7 @@
 
 
 
-.quesFinished{
+.quesFinished {
     grid-column: 5/12;
     font-size: 25px;
 }

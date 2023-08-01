@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import about from '../Styles/About.module.css'
 import { Link } from 'react-router-dom'
+const LazyImage = React.lazy(() => import('./LazyImage'))
 let styles = {
     sectionOne: about.section + " " + about.one,
     sectionTwo: about.section + " " + about.two,
@@ -16,13 +17,7 @@ const About = (props) => {
                 <div className={about.ex}>
                     <h1>Ultimate Online Tests Hub!</h1>
                     <p>
-                        We have strived to create an inclusive
-                        learning environment by offering comprehensive explanations and
-                        supplemental resources alongside each quiz question.
-                        This way,
-                        you can deepen your understanding of the concepts and principles
-                        behind Electrical Engineering,
-                        making your learning experience more enriching and rewarding.
+                        Welcome to our examination website, where success awaits your journey. We understand that examinations can be both exciting and challenging, and that's why we've crafted an intuitive platform to support your academic endeavors.
                     </p>
                     <Link to='/signup' onClick={register}>
                         <p className={about.explore}>
@@ -30,10 +25,15 @@ const About = (props) => {
                         </p>
                     </Link>
                 </div>
-                <img src='assets/online-exam.png' height="400" width="600" alt='' />
+                <Suspense fallback={<div>loading...</div>}>
+                    <LazyImage url='assets/online-exam.png' height="400" width="600" />
+                </Suspense>
             </div>
             <div className={styles.sectionTwo}>
-                <img src='assets/doctormarked.jpg' height="400" width="600" alt='' />
+                <Suspense fallback={<div>loading...</div>}>
+                    <LazyImage url='assets/doctormarked.jpg' height="400" width="600" />
+
+                </Suspense>
                 <div className={about.ex}>
                     <h1>Take The Advantages Of That Community!</h1>
                     <p>
@@ -49,15 +49,11 @@ const About = (props) => {
             </div>
             <div className={styles.sectionThree}>
                 <div className={about.ex}>
-                    <h1>Find out Where You're Now!</h1>
+                    <h1>Reliable Secure & Supportive!</h1>
                     <p>
-                        We have strived to create an inclusive
-                        learning environment by offering comprehensive explanations and
-                        supplemental resources alongside each quiz question.
-                        This way,
-                        you can deepen your understanding of the concepts and principles
-                        behind Electrical Engineering,
-                        making your learning experience more enriching and rewarding.
+                        As you embark on this transformative experience,
+                        rest assured that our website is secure, reliable, and built to support your success. So, dive in, explore, and let our examination website be your trusted companion in your pursuit of knowledge and achievement.
+                        Happy learning!
                     </p>
                     <Link to='/signup' onClick={register}>
                         <p className={about.explore}>
@@ -65,7 +61,9 @@ const About = (props) => {
                         </p>
                     </Link>
                 </div>
-                <img src='assets/1000_F_569845170_QLp8dKvnDGKTDx1SKRBmB0EAk6fb8sCR.jpg' height="400" width="600" alt='' />
+                <Suspense fallback={<div>Loading...</div>}>
+                    <LazyImage url='assets/1000_F_569845170_QLp8dKvnDGKTDx1SKRBmB0EAk6fb8sCR.jpg' height="400" width="600" />
+                </Suspense>
             </div>
         </div>
     )

@@ -11,8 +11,7 @@ const CountdownTimer = () => {
     const [countdownStEx, setCountdownStEx] = useState('')
     const { exam } = useSelector((state) => state.studentExam)
 
-    // const givenDuration = moment(exam?.createdAt).add(5, 'minutes');
-    const givenDuration = moment(exam?.createdAt).add(1, 'hours');
+    const givenDuration = moment(exam?.createdAt).add(30, 'minutes');
     const dispatch = useDispatch();
 
     let localUser = JSON.parse(localStorage.getItem('additional')).additional;

@@ -1,16 +1,46 @@
-import React from 'react'
-import { Navigate, Outlet } from 'react-router-dom';
-
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
+import logoutUser from '../components/Logout';
+import IdleTimer from '../components/Session/IdleTimer';
 
 const ProtectedRoute = () => {
-    let user_token = JSON.parse(localStorage.getItem('additional'))?.additional?.user_token;
-    let localUserPath = JSON.parse(localStorage.getItem('dashboard-sub-path'));
-    if (!user_token || !localUserPath) {
-        return <Navigate to="/" />
+  const { keepUserLoggedIn } = useSelector((state) => state.auth)
+
+  /** */
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!keepUserLoggedIn) {
+      const importedLogout = () => {
+        logoutUser(dispatch, navigate);
+      }
+      const timer = new IdleTimer({
+        // timeout: 10, // 10 secs
+        timeout: 60 * 10, // 10 mins
+        onTimeout: () => {
+          importedLogout();
+        },
+        onExpired: () => {
+          importedLogout();
+        }
+      })
+      return () => {
+        timer.cleanUp();
+      }
     }
-    return (
-        <Outlet />
-    )
+  }, [dispatch, keepUserLoggedIn, navigate])
+  /** */
+
+  let user_token = JSON.parse(localStorage.getItem('additional'))?.additional?.user_token;
+  let localUserPath = JSON.parse(localStorage.getItem('dashboard-sub-path'));
+  if (!user_token || !localUserPath) {
+    return <Navigate to="/" />
+  }
+  return (
+    <Outlet />
+  )
 }
 
 export default ProtectedRoute

@@ -16,14 +16,19 @@
 .middle {
     grid-row: 1;
     grid-column: 6/9;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-.middle span{
+
+.middle span {
     font-size: 13px;
     font-weight: 700;
 }
+
 .response {
     grid-row: 1;
-    grid-column:5/10;
+    grid-column: 5/10;
     background: rgb(4, 131, 4);
     border-radius: 15px;
     height: 50px;
@@ -33,7 +38,7 @@
     padding-left: 3em;
     font-size: 20px;
     font-weight: 800;
-    color:var(--faded);
+    color: var(--faded);
 
 }
 

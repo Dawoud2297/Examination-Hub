@@ -10,6 +10,7 @@
     padding: 10px;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 30px;
 }
 
@@ -49,8 +50,11 @@
 .bio {
     display: grid;
     gap: 0.5em;
+    margin-top: -25px;
 }
-
+.bio textarea {
+    height: 200px;
+}
 .leftHand .line {
     border: 0.1px solid #b49191;
     margin-bottom: 1em;
@@ -60,18 +64,8 @@
 .otherShortHands ul {
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-template-columns: repeat(12, 1fr); */
     gap: 10px;
 }
-
-/* .leftHand .otherShortHands ul li:nth-child(1) {
-    grid-row: 1;
-    grid-column: 1/12;
-}
-.leftHand .otherShortHands ul li:nth-child(2) {
-    grid-row: 2;
-    grid-column: 1/12;
-} */
 
 .otherShortHands li {
     font-weight: 800;
@@ -114,13 +108,10 @@
     grid-column: 9/13;
     grid-row: 1/3;
     display: grid;
-    /* grid-template-rows: 1fr repeat(3, 1fr); */
-    /* justify-items: flex-start; */
     gap: 1em;
     padding: 10px;
     height: 450px;
     overflow: hidden;
-    overflow-y: scroll;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -139,33 +130,14 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     padding-bottom: 15px;
-    /* padding-left: 1em; */
     align-items: center;
     box-shadow: 0 0 0.09em 0 rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    /* width: 90%; */
-    /* place-items: center; */
 }
 
 .draft:hover {
     background-color: #b49191;
 }
-
-/* .draftHeader { */
-/* grid-column: 1/8; */
-/* display: grid; */
-/* grid-template-columns: repeat(12, 1fr); */
-/* gap: 15px; */
-/* justify-items: flex-end; */
-/* } */
-
-/* title */
-/* .draftHeader p:nth-child(1) {
-    grid-column: 1/9;
-    font-size: 20px;
-    font-weight: 900;
-    justify-self: flex-start;
-} */
 
 .draftTitle {
     grid-column: 1/7;
@@ -174,7 +146,6 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    /* justify-self: flex-start; */
 }
 
 .draftDesc {
@@ -282,9 +253,9 @@ body:has(.qbOn) {
 
 .title {
     margin-top: -15px;
-}
-
-.title {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     font-size: 20px;
     font-weight: 700;
     margin-left: 20px;
@@ -295,6 +266,9 @@ body:has(.qbOn) {
     font-weight: 600;
     margin: 5px 0;
     margin-left: 20px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 .archive .noArch {

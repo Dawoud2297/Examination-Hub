@@ -1,11 +1,11 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import daHome from '../../Styles/Dashboard/DashboardHome.module.css'
 import DashboardHeader from './DashboardHeader'
 import Dashboard from './doctor/Dashboard'
 import DashboardStu from './student/DashboardStu'
 import { selectAuthType } from '../../store/auth'
-import { getProfileReq } from '../../store/createProfile'
+import { getProfileReq, profileIsUpdated } from '../../store/createProfile'
 import { getStudentExamReq } from '../../store/studentExam'
 import StudentExam from './student/StudentExam'
 import { openExamDrReq } from '../../store/openExamsFtDr'
@@ -26,11 +26,15 @@ const DashboardHome = () => {
     /** */
 
     const { exam } = useSelector((state) => state.studentExam)
-    const { userProfile } = useSelector((state) => state.createProfile)
+    const { userProfile, isProfileUpdated } = useSelector((state) => state.createProfile)
 
     useEffect(() => {
         dispatch(getProfileReq(localUser.user_token))
-    }, [dispatch, localUser.user_token])
+        if (isProfileUpdated === true) {
+            dispatch(getProfileReq(localUser.user_token));
+            dispatch(profileIsUpdated());
+        }
+    }, [dispatch, localUser.user_token, isProfileUpdated])
 
 
     useEffect(() => {
@@ -47,14 +51,19 @@ const DashboardHome = () => {
     }, [dispatch, exam])
 
 
-
-    useEffect(() => {
+    const stuSubmitted = useCallback(() => {
         for (let ex of totalStuExams) {
             if (ex?._id === exam?._id) {
-                dispatch(studetnAlreadySubmitted())
+                return dispatch(studetnAlreadySubmitted())
             }
         }
+
     }, [dispatch, exam?._id, totalStuExams])
+
+
+    useEffect(() => {
+        stuSubmitted()
+    }, [stuSubmitted])
 
 
     console.log(studentSubmitted)
@@ -67,25 +76,13 @@ const DashboardHome = () => {
             }
             {
                 role === 'instructor' ?
-                    <Dashboard
-                        firstName={userProfile?.first_name}
-                        lastName={userProfile?.last_name}
-                        photo={userProfile?.profileImageUrl}
-                        userName={userProfile?.username}
-                        bio={userProfile?.bio}
-                        email={userProfile?.email}
-                    /> : (
+                    <Dashboard />
+                    : (
                         (exam?._id && !studentSubmitted) ? (
                             <StudentExam />
                         ) : (
                             <DashboardStu
-                                firstName={userProfile?.first_name}
-                                lastName={userProfile?.last_name}
-                                photo={userProfile?.profileImageUrl}
-                                userName={userProfile?.username}
                                 stCode={userProfile?.stCode}
-                                bio={userProfile?.bio}
-                                email={userProfile?.email}
                                 studentSubmitted={studentSubmitted}
                             />
 

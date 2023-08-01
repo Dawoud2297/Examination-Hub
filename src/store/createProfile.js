@@ -14,30 +14,35 @@ export const getProfileReq = createAsyncThunk("createProfile/getProfileReq", asy
 
 
 const initialState = {
-    userProfile: []
+    userProfile: [],
+    isProfileUpdated: false,
+    loadingProfileData: false
 }
 const createProfileSlice = createSlice({
     name: "createProfile",
     initialState,
+    reducers: {
+        profileIsUpdated: (state) => {
+            state.isProfileUpdated = !state.isProfileUpdated;
+        }
+    },
     extraReducers: {
-        [createProfileReq.pending]: (state) => {
-
-        },
         [createProfileReq.fulfilled]: (state, action) => {
         },
         [createProfileReq.rejected]: (state) => {
 
         },
         [getProfileReq.pending]: (state) => {
-
+            state.loadingProfileData = true;
         },
         [getProfileReq.fulfilled]: (state, action) => {
+            state.loadingProfileData = false;
             state.userProfile = action.payload
         },
         [getProfileReq.rejected]: (state) => {
-
+            state.loadingProfileData = false;
         }
     }
 })
-
+export const { profileIsUpdated } = createProfileSlice.actions;
 export default createProfileSlice.reducer;

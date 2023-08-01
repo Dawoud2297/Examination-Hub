@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import daHeader from '../../Styles/Dashboard/Dash_Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../../store/auth';
 import { useNavigate } from 'react-router-dom';
-import { setIdentity } from '../../store/identity';
-import { logoutDashboard } from '../../store/examsTypes';
 import { deleteQuestionPrompt } from '../../store/questionActions';
 import identityPath from '../../helpers/identityPath';
+import logoutUser from '../Logout';
 
 const DashboardHeader = ({ header }) => {
     const [logoutPopup, setLogoutPopup] = useState(false)
@@ -20,7 +18,7 @@ const DashboardHeader = ({ header }) => {
 
     const setUserName = (name) => {
         let op = name.split(" ");
-        return `${op[0][0]}${op[1][0]}`
+        return `${op[0][0]}${op[1][0]}`.toUpperCase()
     }
 
 
@@ -37,12 +35,10 @@ const DashboardHeader = ({ header }) => {
         navigate(identityPath(user_token, id))
     }
 
-    const logoutUser = () => {
-        dispatch(logout());
-        dispatch(setIdentity(''));
-        dispatch(logoutDashboard())
-        navigate('/');
+    const importedlogout = () => {
+        logoutUser(dispatch, navigate)
     }
+
     return (
         <div className={daHeader.container}>
             <div className={daHeader.logo}>
@@ -68,7 +64,9 @@ const DashboardHeader = ({ header }) => {
                         {
                             logoutPopup &&
                             <div className={daHeader.logout}>
-                                <button onClick={logoutUser}>
+                                <button
+                                    onClick={importedlogout}
+                                >
                                     LOGOUT
                                 </button>
                             </div>

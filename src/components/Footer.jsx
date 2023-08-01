@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className={footer.footerContainer}>
       <div className={footer.logo}>
-        <img src='assets/alazhar-logo2.png' height="200" width="250" alt='' />
+        <img src='assets/alazhar-logo2.png' height="150" width="200" alt='' />
       </div>
       <div className={footer.section}>
         <ul className={footer.info}>
@@ -20,15 +20,15 @@ const Footer = () => {
 
         <div className={footer.contacts}>
           <img src='assets/Group 1432.svg' alt='' />
-          <p>/Alazhar</p>
+          <a href='https://www.facebook.com/AlAzharUniversity/' target='blank'>/Alazhar</a>
         </div>
         <div className={footer.contacts}>
           <img src='assets/Group 1433.svg' alt='' />
-          <p>/Alazhar</p>
+          <a href='https://www.instagram.com/alazhar.university/' target='blank'>/Alazhar</a>
         </div>
         <div className={footer.contacts}>
           <img src='assets/Group 1434.svg' alt='' />
-          <p>/Alazhar</p>
+          <a href='https://twitter.com/alazharuniv?lang=en' target='blank'>/Alazhar</a>
         </div>
 
       </div>

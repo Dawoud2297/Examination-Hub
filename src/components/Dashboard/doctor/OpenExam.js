@@ -16,12 +16,6 @@ const OpenExam = (props) => {
         dispatch(openExamDrReq(localExamId))
     }, [dispatch])
 
-    console.log(openedExam)
-
-
-
-    // When page is closed the `openExamId` in local storage must be deleted
-
 
 
     return (
@@ -31,10 +25,10 @@ const OpenExam = (props) => {
                     <>
                         <DashboardHeader header={openedExam.title} />
                         <div className={openEx.examHeader}>
-                            <h1>{openedExam.title}</h1>
+                            <h1 title={openedExam.title}>{openedExam.title}</h1>
                             <div className={openEx.examData}>
                                 <p>{openedExam.category}</p>
-                                <p>{openedExam.description}</p>
+                                <p title={openedExam.description}>{openedExam.description}</p>
                                 <p>{openedExam.createdAt}</p>
                             </div>
                         </div>

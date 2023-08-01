@@ -63,6 +63,19 @@
     grid-row: 1;
 }
 
+.leftHand input[type=file] {
+    grid-row: 1;
+    height: 50px;
+    background-color: #00000d;
+}
+
+
+.leftHand [type=file]::file-selector-button {
+    border: none;
+    background: #00000d;
+}
+
+
 .leftHand .photo p {
     grid-column: 2/7;
     grid-row: 1;

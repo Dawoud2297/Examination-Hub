@@ -15,10 +15,7 @@ const StudentExam = (props) => {
   const { timeRanOut } = useSelector((state) => state.studentSubmission)
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const token = JSON.parse(localStorage.getItem('additional')).additional.user_token;
-  // const shuffled = openedExam?.questions && shuffleQuestions(openedExam?.questions)
   const currentQuestion = openedExam?.questions && openedExam?.questions[questionindex]
-  // const currentQuestion = shuffled[questionindex]
-  // console.log(shuffled)
   const dispatch = useDispatch();
 
   const nextQues = () => {
@@ -68,9 +65,6 @@ const StudentExam = (props) => {
                   <p>
                     {openedExam?.title}
                   </p>
-                  <span>
-                    {openedExam?.description}
-                  </span>
                 </div>
                 <div className={openEx.examDataExamTime}>
                   <p>{openedExam?.category}</p>
