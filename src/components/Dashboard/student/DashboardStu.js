@@ -14,14 +14,17 @@ const DashboardStu = (props) => {
   const userAdditional = JSON.parse(localStorage.getItem('additional'));
   const userId = userAdditional?.id, user_token = userAdditional?.additional?.user_token
   const [questionBank, setQuestionBank] = useState(false)
+
+  const { totalStuExams, studentSubmitted } = useSelector((state) => state.studentSubmission)
   const dispatch = useDispatch()
+
 
   useEffect(() => {
     dispatch(totalStudentsExamsReq(user_token))
-  }, [dispatch, user_token])
+    if (studentSubmitted) dispatch(totalStudentsExamsReq(user_token))
+  }, [dispatch, studentSubmitted, user_token])
 
 
-  const { totalStuExams } = useSelector((state) => state.studentSubmission)
 
   const questionsBank = () => {
     setQuestionBank(true)

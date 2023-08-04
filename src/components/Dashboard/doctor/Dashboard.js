@@ -11,7 +11,7 @@ import UserProfile from '../UserProfile'
 const ExamTimer = React.lazy(() => import('./ExamTimer'));
 
 const userAdditional = JSON.parse(localStorage.getItem('additional'))
-const id = userAdditional?.id, user_token = userAdditional?.additional?.user_token;
+const id = userAdditional?.additional?.id, user_token = userAdditional?.additional?.user_token;
 
 
 const Dashboard = (props) => {
@@ -39,6 +39,7 @@ const Dashboard = (props) => {
         dispatch(setCategory(category))
         dispatch(setExamMode(true))
         navigate(`${identityPath(user_token, id)}/createExam`)
+        // navigate(`/createExam`)
     }
 
     const editDraft = (draftId) => {
@@ -47,7 +48,8 @@ const Dashboard = (props) => {
         dispatch(turnOnLoading())
     }
 
-    const token = JSON.parse(localStorage.getItem('additional'))?.additional?.user_token;
+    const additional = JSON.parse(localStorage.getItem('additional'))?.additional;
+    const token = additional?.user_token;
     const openStudentsData = () => {
         navigate(`${identityPath(user_token, id)}/students-data`)
     }
@@ -67,9 +69,9 @@ const Dashboard = (props) => {
 
 
     useEffect(() => {
-        if (exam?.title) setPublishedExam(true);
+        if (exam?.createdBy === userProfile._id) setPublishedExam(true);
         else setPublishedExam(false);
-    }, [exam])
+    }, [exam, userProfile._id])
 
     console.log(drafts)
 

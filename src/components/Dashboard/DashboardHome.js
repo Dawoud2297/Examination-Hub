@@ -27,6 +27,7 @@ const DashboardHome = () => {
 
     const { exam } = useSelector((state) => state.studentExam)
     const { userProfile, isProfileUpdated } = useSelector((state) => state.createProfile)
+    const { timeRanOut } = useSelector((state) => state.studentSubmission)
 
     useEffect(() => {
         dispatch(getProfileReq(localUser.user_token))
@@ -39,7 +40,8 @@ const DashboardHome = () => {
 
     useEffect(() => {
         dispatch(getStudentExamReq())
-    }, [dispatch])
+        if (timeRanOut) dispatch(getStudentExamReq())
+    }, [dispatch, timeRanOut])
 
     console.log(userProfile)
 

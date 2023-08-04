@@ -3,18 +3,16 @@ import daHeader from '../../Styles/Dashboard/Dash_Header.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { deleteQuestionPrompt } from '../../store/questionActions';
-import identityPath from '../../helpers/identityPath';
 import logoutUser from '../Logout';
 
 const DashboardHeader = ({ header }) => {
     const [logoutPopup, setLogoutPopup] = useState(false)
     const { deletion_is_done, addition_is_done } = useSelector((state) => state.questionActions)
+    const additional = JSON.parse(localStorage.getItem('additional'))
+    const role = additional?.additional.role;
+    const name = additional?.additional.name
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const createExamMode = JSON.parse(localStorage.getItem('examMode'))?.createExamMode
-    const additional = JSON.parse(localStorage.getItem('additional'))
-    const id = additional?.id, user_token = additional?.additional?.user_token, role = additional?.additional.role;
-    const name = additional?.additional.name
 
     const setUserName = (name) => {
         let op = name.split(" ");
@@ -29,11 +27,6 @@ const DashboardHeader = ({ header }) => {
             }
         }, 1000)
     }, [addition_is_done, deletion_is_done, dispatch])
-
-    const cancelCreatingExam = () => {
-        localStorage.removeItem('examMode')
-        navigate(identityPath(user_token, id))
-    }
 
     const importedlogout = () => {
         logoutUser(dispatch, navigate)
@@ -54,30 +47,22 @@ const DashboardHeader = ({ header }) => {
                     </span>
                 </p>
             </div>
-            {
-                createExamMode ? (
-                    <div className={daHeader.profile}>
-                        <p onClick={cancelCreatingExam}>Cancle</p>
+            <div className={daHeader.profile}>
+                {
+                    logoutPopup &&
+                    <div className={daHeader.logout}>
+                        <button
+                            onClick={importedlogout}
+                        >
+                            LOGOUT
+                        </button>
                     </div>
-                ) : (
-                    <div className={daHeader.profile}>
-                        {
-                            logoutPopup &&
-                            <div className={daHeader.logout}>
-                                <button
-                                    onClick={importedlogout}
-                                >
-                                    LOGOUT
-                                </button>
-                            </div>
-                        }
-                        <p onClick={() => setLogoutPopup(!logoutPopup)}>
-                            {/* MA */}
-                            {setUserName(name)}
-                        </p>
-                    </div>
-                )
-            }
+                }
+                <p onClick={() => setLogoutPopup(!logoutPopup)}>
+                    {/* MA */}
+                    {setUserName(name)}
+                </p>
+            </div>
             {
                 deletion_is_done &&
                 <div className={daHeader.response}>

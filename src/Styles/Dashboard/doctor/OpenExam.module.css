@@ -108,9 +108,7 @@
 }
 
 .titleAndDes {
-    /* width: 50%; */
     display: grid;
-    /* grid-template-columns: 1fr 6fr; */
     align-items: center;
 }
 
@@ -209,9 +207,6 @@
 .selected {
     background: rgba(0, 0, 0, 0.5);
 }
-
-
-
 
 .quesFinished {
     grid-column: 5/12;

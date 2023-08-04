@@ -27,6 +27,9 @@ const studentSubmission = createSlice({
         },
         isTimeRanOut: (state) => {
             state.timeRanOut = true;
+        },
+        logoutStudentSubmission: (state) => {
+            return initialState
         }
     },
     extraReducers: {
@@ -43,5 +46,5 @@ const studentSubmission = createSlice({
         }
     }
 })
-export const { studetnAlreadySubmitted, isTimeRanOut } = studentSubmission.actions;
+export const { studetnAlreadySubmitted, isTimeRanOut, logoutStudentSubmission } = studentSubmission.actions;
 export default studentSubmission.reducer;

@@ -10,6 +10,7 @@ import RegisterHome from "../components/Register/RegisterHome";
 import AddExams from "../components/Dashboard/doctor/AddExams";
 import OpenExam from "../components/Dashboard/doctor/OpenExam";
 import StudentsData from "../components/Dashboard/doctor/StudentsData";
+import About from "../components/About";
 
 const Routes = () => {
 
@@ -31,6 +32,10 @@ const Routes = () => {
                 {
                     path: "/auth/login",
                     element: <Login />
+                },
+                {
+                    path: '/about',
+                    element: <About />
                 }
             ]
         }
