@@ -8,6 +8,7 @@ import { createExamReq, removeError } from '../../../store/createExams';
 import identityPath from '../../../helpers/identityPath';
 import { useNavigate } from 'react-router-dom';
 import { updateDraftReq } from '../../../store/drafts';
+import Cookies from 'js-cookie';
 
 
 const ExamForm = () => {
@@ -159,12 +160,12 @@ const ExamForm = () => {
     navigate(identityPath(user_token, id))
   }
 
+  const getCurrentTheme = Cookies.get('dim');
 
   return (
     <div className={exFoStyle.container}>
-      <div className={exFoStyle.controls}>
+      <div className={`${exFoStyle.controls} ${getCurrentTheme ? exFoStyle.controlsDark : null}`}>
         <p>{fromDraft?.category ? 'Exam Type: ' + fromDraft?.category : 'Create Exam : ' + examType}</p>
-
         <p>
           Questions: {questionsIDs?.length}
         </p>
@@ -235,7 +236,7 @@ const ExamForm = () => {
           questions?.length > 0 ? (
             questions.map((question) => (
               <div className={qbStyle.question} key={question._id}>
-                <div className={qbStyle.questionHead}>
+                <div className={getCurrentTheme ? exFoStyle.questionHeadDark : exFoStyle.questionHead}>
                   {
                     <label
                       className={exFoStyle.selected}

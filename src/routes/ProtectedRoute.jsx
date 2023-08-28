@@ -17,8 +17,7 @@ const ProtectedRoute = () => {
         logoutUser(dispatch, navigate);
       }
       const timer = new IdleTimer({
-        // timeout: 10, // 10 secs
-        timeout: 60 * 10, // 10 mins
+        timeout: 60 * 10,
         onTimeout: () => {
           importedLogout();
         },
@@ -32,6 +31,11 @@ const ProtectedRoute = () => {
     }
   }, [dispatch, keepUserLoggedIn, navigate])
   /** */
+
+  useEffect(()=>{
+    document.body.dir = "ltr";
+    document.title = "Examinations Hub"
+  },[])
 
   let user_token = JSON.parse(localStorage.getItem('additional'))?.additional?.user_token;
   let localUserPath = JSON.parse(localStorage.getItem('dashboard-sub-path'));

@@ -10,7 +10,14 @@
   --successii: #0f5132;
   --snow: #F5FEFD;
   --dark: #050100;
-  /* --crow: #0D0906; */
+  --colors-neutral800: #0E0E0E;
+  --colors-neutral700: #161616;
+  --colors-neutral600: #1D1D1D;
+  --colors-neutral500: #252525;
+  --colors-neutral400: #292929;
+  --colors-neutral300: #2D2D2D;
+  --colors-neutral200: #303030;
+  --colors-neutral100: #343434;
 }
 
 /* Scroll-Bar */
@@ -19,12 +26,11 @@
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 10px;
+  background: #4c6e91;
 }
 
 ::-webkit-scrollbar-thumb {
-  /* background: #888; */
-  background: var(--pri);
+  background: #15202B;
 }
 
 ::-webkit-scrollbar-thumb:hover {

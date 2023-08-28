@@ -157,20 +157,20 @@ const QuestionBank = (props) => {
 
             questions?.length > 0 ? (
               questions.map((question) => (
-                <div className={qbStyle.question} key={question._id}>
+                <div className={qbStyle.question} key={question?._id}>
                   <div className={qbStyle.questionHead}>
 
                     {
                       deleteQuestion ?
                         <label
                           className={qbStyle.deleteQuestion}
-                          htmlFor={question._id}
+                          htmlFor={question?._id}
                         >
                           <input
                             type='checkbox'
                             name='checked'
-                            id={question._id}
-                            value={question._id}
+                            id={question?._id}
+                            value={question?._id}
                             onChange={(e) => handleCheckedboxes(e)}
                           />
                           <span>

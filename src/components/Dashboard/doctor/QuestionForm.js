@@ -162,20 +162,6 @@ const QuestionForm = (props) => {
                         <button type='submit'>Add</button>
                     </form>
                 ) : (
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     props.choised && trueFalse.status ? (
                         <form className={qesForm.addQuestion} onSubmit={(e) => handleSubmit(e, trueFalse.data)}>
                             <input
@@ -217,20 +203,6 @@ const QuestionForm = (props) => {
                             <button type='submit'>Add</button>
                         </form>
                     ) : (
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         props.choised && openEnded.status ? (
                             <form className={qesForm.addQuestion} onSubmit={(e) => handleSubmit(e, openEnded.data)}>
                                 <input

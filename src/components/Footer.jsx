@@ -8,6 +8,11 @@ const Footer = (props) => {
 
   const about = () => {
     navigate('/about')
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    })
   }
 
   return (

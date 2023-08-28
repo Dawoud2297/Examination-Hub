@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
 const PublicRoutes = () => {
+
+
+  useEffect(()=>{
+    document.body.dir = "ltr";
+    document.title = "Examinations Hub"
+  },[])
+
 
     const { auth_type } = useSelector((state) => state.auth);
     let localUser = JSON.parse(localStorage.getItem('additional'));

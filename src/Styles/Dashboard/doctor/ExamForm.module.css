@@ -11,8 +11,39 @@
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: 700;
+    padding-bottom: 10px;
 }
 
+.controls input {
+    padding: 0.5em;
+    border-radius: 10px;
+}
+
+/* new feature */
+.controlsDark input {
+    padding: 0.5em;
+    border-radius: 10px;
+    background: #243546;
+    color: var(--faded);
+}
+
+.controlsDark input:focus {
+    border: none;
+    border: 1px solid #335575;
+}
+
+
+.questionHeadDark {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--faded);
+}
+
+.questionHeadDark span {
+    font-size: 15px;
+}
+
+/*  */
 body:has(.controls) {
     overflow: hidden;
 }
@@ -70,12 +101,15 @@ body:has(.controls) {
     margin-left: 300px;
     font-size: 18px;
     font-weight: 700;
-
+    float: right;
+    border-radius: 10px;
+    border: none;
 }
 
 
 .actions button:hover {
-    background: var(--successii);
+    background: #243546;
+    color: var(--faded);
 }
 
 .actions label {
@@ -98,6 +132,17 @@ body:has(.controls) {
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
 }
 
+/*  */
+
+.questionHead {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--inverse);
+}
+
+.questionHead span {
+    font-size: smaller;
+}
 
 /* Questions */
 .selected {

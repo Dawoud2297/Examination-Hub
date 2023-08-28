@@ -69,7 +69,7 @@ const DiffExams = () => {
                     <div className={daBody.loader}></div>
                 ) : (
                     examsTypeData?.length > 0 ? (sortedData?.map((data) => (
-                        <div onClick={() => openIndividual(data._id)} className={diff.choiceData} key={data._id}>
+                        <div onClick={() => openIndividual(data?._id)} className={diff.choiceData} key={data?._id}>
                             <p className={diff.title}>{data.title}</p>
                             <p> {data.description}</p>
                             <p className={diff.createdAt}> {data.createdAt} </p>

@@ -3,7 +3,25 @@
     background: #161616;
     display: grid;
     grid-template-columns: 1fr;
+    gap: 10px;
     color: #F0F0F0;
+}
+
+.aboutBody {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 120px;
+}
+
+.aboutBody button:nth-child(1) {
+    border: none;
+    border-radius: 50px 0px 0px 50px;
+    background: #343434;
+}
+
+.aboutBody button:nth-child(2) {
+    border: none;
+    border-radius: 0px 50px 50px 0px;
 }
 
 .headerContainer {
@@ -26,9 +44,18 @@
     color: #D6FB41;
 }
 
-.login {
+.loginEn {
     float: right;
     margin-left: auto;
+}
+
+.loginAr {
+    float: left;
+    margin-right: auto;
+}
+
+.loginAr button {
+    margin-right: 1em;
 }
 
 .login .link {
@@ -54,7 +81,6 @@
 }
 
 .aboutBody {
-    /* margin: 0 50px; */
     margin: 0 2em;
     text-align: justify;
 
@@ -64,18 +90,74 @@
     margin: 2em 0;
 }
 
+section {
+    display: grid;
+    grid-template-columns: repeat(1fr, 12);
+}
+
+section span:nth-child(1) {
+    grid-row: 1;
+    grid-column: 1;
+}
+
+section span:nth-child(2) {
+    grid-row: 1;
+    grid-column: 2/13;
+}
+
+section span:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1/13;
+}
+
+.sec2 span:nth-child(1) {
+    grid-row: 1;
+    grid-column: 12/13;
+}
+
+.sec2 span:nth-child(2) {
+    grid-row: 1;
+    grid-column: 1/12;
+}
+
+.sec2 span:nth-child(3) {
+    grid-row: 2;
+    grid-column: 1/13;
+}
+
 .sectionHead {
     color: #D6FB41;
-    font-size: 25px;
     margin-right: 10px;
-    font-weight: 800;
+    font-weight: 900;
+}
+
+.sectionHeadAr {
+    font-size: 100px;
+}
+
+.sectionHeadEn {
+    font-size: 100px;
+    word-spacing: 500px;
 }
 
 .sectionBody {
-    font-size: 18px;
+    font-size: 25px;
     font-weight: 700;
 }
 
+.section34 {
+    display: grid;
+    grid-template-columns: repeat(1fr, 12);
+}
+
+.section34 span:nth-child(1) {
+    grid-column: 1/13;
+}
+
+.section34 span:nth-child(2) {
+    grid-column: 1/13;
+    grid-row: 2;
+}
 
 /* footer */
 .footerContainer {
@@ -84,7 +166,7 @@
     padding: 1.5% 5%;
     height: 250px;
     color: #666666;
-    background:  #252525;
+    background: #252525;
     font-weight: 900;
     box-shadow: 10px 5px 50px black;
 }

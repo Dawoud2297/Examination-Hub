@@ -11,6 +11,7 @@ import AddExams from "../components/Dashboard/doctor/AddExams";
 import OpenExam from "../components/Dashboard/doctor/OpenExam";
 import StudentsData from "../components/Dashboard/doctor/StudentsData";
 import About from "../components/About";
+import { Suspense } from "react";
 
 const Routes = () => {
 
@@ -35,7 +36,10 @@ const Routes = () => {
                 },
                 {
                     path: '/about',
-                    element: <About />
+                    element:
+                        <Suspense fallback={false}>
+                            <About />
+                        </Suspense>
                 }
             ]
         }

@@ -1,1 +1,1 @@
-export const sharedUrl = "https://weak-ruby-kangaroo-sock.cyclic.app";
+export const sharedUrl = "https://busy-jade-sawfish-slip.cyclic.cloud";
