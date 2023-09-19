@@ -21,8 +21,10 @@ What if there is a published exam at the same time when the student opens the da
 ### Student exam page :
 is the page where student receives and interact with the published exam, this page can be divided to two parts the : exam head where the exam name, timer and submit button are placed. exam body where the leftover questions and the question with it's options to solve are placed. The model works in the style question is followed by the next one while the time is counting down
 .
-### SignUp steps :
-after signup is selected it will be directed to page where the user choose which account to create (instructor or student) after filling out all the required fields you will be directed to create your profile options and after submitting you will be directed to your dashboard.
+### SignUp process :
+After signup is selected it will be directed to page where the user choose which account to create (instructor or student).
+![Ex-Hub2](https://github.com/Dawoud2297/Examination-Hub/assets/86451115/7d0ebcc5-e79c-45b3-8b94-a3f7d9551c8a)
+after filling out all the required fields you will be directed to create your profile options and after submitting you will be directed to your dashboard.
 ![ExHub3](https://github.com/Dawoud2297/Examination-Hub/assets/86451115/8de1c397-cab9-4698-ac93-781db1ffc49d)
 ## features 
 ### Session :
