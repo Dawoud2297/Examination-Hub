@@ -1,6 +1,6 @@
 # Examination-Hub :
 Is an examination app, contains  and illustrates the relation between the instructor and the students. So that the instructor can : 
-- create and publishe the exams.
+- create and publish the exams.
 - Make Exams available to his students.
 - Get the students' available data.
 - contact with the students.
