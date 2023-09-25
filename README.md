@@ -1,5 +1,10 @@
 # Examination-Hub :
-Is an examination app, contains  and illustrates the relation between the instructor and the students. So that the instructor creates and publishes the exams and then they are available to his students.
+Is an examination app, contains  and illustrates the relation between the instructor and the students. So that the instructor can : 
+- create and publishe the exams.
+- Make Exams available to his students.
+- Get the students' available data.
+- contact with the students.
+- restore and keep hands on his activities. 
 ![ExHub1](https://github.com/Dawoud2297/Examination-Hub/assets/86451115/1aff094c-fb9c-4b1e-97e1-336971116942)
 ### The Instructor Department:
 ![insDash4](https://github.com/Dawoud2297/Examination-Hub/assets/86451115/da1d093c-ac50-4ea4-a99b-ab353ea88d94)
