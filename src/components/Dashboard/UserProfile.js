@@ -74,11 +74,11 @@ const UserProfile = (props) => {
                     ) : (
                         <img
                             src={
-                                userProfile?.profileImageUrl
+                                userProfile?.role === 'instructor'
                                     ?
-                                    userProfile?.profileImageUrl
-                                    :
                                     '/assets/placeholder-doctor.jpg'
+                                    :
+                                    '/assets/placeholder-stu.jpg'
                             }
                             height="80"
                             width="80"
@@ -112,14 +112,15 @@ const UserProfile = (props) => {
             <div className={daBody.leftHandBody}>
                 <div className={daBody.bio}>
                     {
-                        editProfile ? <textarea
-                            name="bio"
-                            value={editProfileData.bio}
-                            onChange={handleChange}
-                            maxLength="419"
-                        ></textarea> : <p>
-                            {userProfile?.bio}
-                        </p>
+                        editProfile ?
+                            <textarea
+                                name="bio"
+                                value={editProfileData.bio}
+                                onChange={handleChange}
+                                maxLength="419"
+                            ></textarea> : <p>
+                                {userProfile?.bio}
+                            </p>
                     }
                     {
                         editProfile && <button onClick={handleSubmit}>Submit</button>

@@ -1,7 +1,8 @@
-import React, { Suspense } from 'react'
+import React from 'react'
 import about from '../Styles/HomeBody.module.css'
 import { Link } from 'react-router-dom'
-const LazyImage = React.lazy(() => import('./LazyImage'))
+// const LazyImage = React.lazy(() => import('./lazyLoading/LazyImage'))
+import LazyImage from './lazyLoading/LazyImage'
 let styles = {
     sectionOne: about.section + " " + about.one,
     sectionTwo: about.section + " " + about.two,
@@ -25,15 +26,10 @@ const HomeBody = (props) => {
                         </p>
                     </Link>
                 </div>
-                <Suspense fallback={<div>loading...</div>}>
-                    <LazyImage url='assets/online-exam.png' height="400" width="600" />
-                </Suspense>
+                <LazyImage url='assets/online-exam.png' height="300" width="500" />
             </div>
             <div className={styles.sectionTwo}>
-                <Suspense fallback={<div>loading...</div>}>
-                    <LazyImage url='assets/doctormarked.jpg' height="400" width="600" />
-
-                </Suspense>
+                <LazyImage url='assets/doctormarked.jpg' height="300" width="500" />
                 <div className={about.ex}>
                     <h1>Take The Advantages Of That Community!</h1>
                     <p>
@@ -61,9 +57,7 @@ const HomeBody = (props) => {
                         </p>
                     </Link>
                 </div>
-                <Suspense fallback={<div>Loading...</div>}>
-                    <LazyImage url='assets/1000_F_569845170_QLp8dKvnDGKTDx1SKRBmB0EAk6fb8sCR.jpg' height="400" width="600" />
-                </Suspense>
+                <LazyImage url='assets/1000_F_569845170_QLp8dKvnDGKTDx1SKRBmB0EAk6fb8sCR.jpg' height="400" width="600" />
             </div>
         </div>
     )
