@@ -73,7 +73,7 @@ const Routes = () => {
     const router = createBrowserRouter([
         ...publicRoutes,
         ...authenticatedRoutes
-    ]);
+    ], { basename: process.env.PUBLIC_URL });
 
     return <RouterProvider router={router} />
 
