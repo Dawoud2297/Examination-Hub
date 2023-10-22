@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { questionsBankData } from '../../../store/questionsBank';
 import Void from '../../Void';
 import { createExamReq, removeError } from '../../../store/createExams';
-import identityPath from '../../../helpers/identityPath';
+import identityPath from '../../../utils/helpers/identityPath';
 import { useNavigate } from 'react-router-dom';
 import { updateDraftReq } from '../../../store/drafts';
 import Cookies from 'js-cookie';

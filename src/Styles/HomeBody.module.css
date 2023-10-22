@@ -26,7 +26,8 @@
     float: right;
     margin-left: auto;
 }
-.explore:hover{
+
+.explore:hover {
     background: var(--faded);
     border: 1px solid var(--pri);
     color: var(--pri)
@@ -39,20 +40,24 @@
     float: right;
     margin-left: auto;
 }
+
 .two {
     display: grid;
     align-items: center;
 }
-.ex h1{
+
+.ex h1 {
     color: var(--pri);
     margin: 0;
     margin-bottom: 10px;
 }
-.ex p::first-letter{
+
+.ex p::first-letter {
     color: var(--pri);
     initial-letter: 2 2;
     font-weight: 900;
 }
+
 .aboutContainer img {
     border-radius: 50px;
 }

@@ -187,10 +187,11 @@ body:has(.qbOn) {
     padding: 15px;
     font-size: 20px;
     margin-top: 15px;
-    overflow: scroll;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    overflow: hidden;
     cursor: pointer;
 }
 
 .studetnExamsDataBody:hover {
-    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.5);
 }

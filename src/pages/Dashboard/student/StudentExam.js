@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import openEx from '../../../Styles/Dashboard/doctor/OpenExam.module.css'
 import LoadingIndicator from '../../LoadingIndicator';
 import { studetnAlreadySubmitted, submitAnswersReq } from '../../../store/studentSubmission';
-import CountdownTimer from '../../CountDown';
-// import { shuffleQuestions } from '../../../helpers/shuffleQuestions';
+import CountdownTimer from '../../../components/CountDown';
+
 
 const StudentExam = (props) => {
   const [answers, setAnswers] = useState([])

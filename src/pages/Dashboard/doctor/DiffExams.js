@@ -5,8 +5,8 @@ import Void from '../../Void'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectExamType } from '../../../store/examsTypes'
 import { Link, useNavigate } from 'react-router-dom'
-import sortByDate from '../../../helpers/sortByDate'
-import identityPath from '../../../helpers/identityPath'
+import sortByDate from '../../../utils/helpers/sortByDate'
+import identityPath from '../../../utils/helpers/identityPath'
 
 
 

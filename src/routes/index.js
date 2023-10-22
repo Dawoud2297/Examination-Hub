@@ -1,16 +1,16 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
 import { useSelector } from "react-redux";
-import Home from "../components/Home";
-import Login from '../components/Login';
-import DashboardHome from "../components/Dashboard/DashboardHome";
-import identityPath from "../helpers/identityPath";
+import Home from "../pages/Home";
+import Login from '../pages/Login';
+import DashboardHome from "../pages/Dashboard/DashboardHome";
+import identityPath from "../utils/helpers/identityPath";
 import PublicRoutes from "./PublicRoutes";
-import RegisterHome from "../components/Register/RegisterHome";
-import AddExams from "../components/Dashboard/doctor/AddExams";
-import OpenExam from "../components/Dashboard/doctor/OpenExam";
-import StudentsData from "../components/Dashboard/doctor/StudentsData";
-import About from "../components/About";
+import RegisterHome from "../pages/Register/RegisterHome";
+import AddExams from "../pages/Dashboard/doctor/AddExams";
+import OpenExam from "../pages/Dashboard/doctor/OpenExam";
+import StudentsData from "../pages/Dashboard/doctor/StudentsData";
+import About from "../pages/About";
 import { Suspense } from "react";
 
 const Routes = () => {
@@ -74,7 +74,7 @@ const Routes = () => {
         ...publicRoutes,
         ...authenticatedRoutes
     ]);
-// , { basename: process.env.PUBLIC_URL }
+    // , { basename: process.env.PUBLIC_URL }
     return <RouterProvider router={router} />
 
 }

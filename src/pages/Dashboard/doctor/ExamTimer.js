@@ -1,7 +1,7 @@
 import React from 'react'
 import daBody from '../../../Styles/Dashboard/doctor/Dashboard.module.css'
 import { useSelector } from 'react-redux'
-import CountdownTimer from '../../CountDown'
+import CountdownTimer from '../../../components/CountDown'
 
 const ExamTimer = () => {
     const { exam } = useSelector((state) => state.studentExam)

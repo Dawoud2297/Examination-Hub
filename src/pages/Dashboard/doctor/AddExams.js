@@ -3,7 +3,7 @@ import addExam from '../../../Styles/Dashboard/doctor/AddExam.module.css'
 import QuestionBank from '../QuestionBank';
 import ExamForm from './ExamForm';
 import { useNavigate } from 'react-router-dom';
-import identityPath from '../../../helpers/identityPath';
+import identityPath from '../../../utils/helpers/identityPath';
 import { closeCreatedSuccessfully, setCategory } from '../../../store/createExams';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';

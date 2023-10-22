@@ -1,8 +1,9 @@
 import React from 'react'
 import about from '../Styles/HomeBody.module.css'
 import { Link } from 'react-router-dom'
-// const LazyImage = React.lazy(() => import('./lazyLoading/LazyImage'))
-import LazyImage from './lazyLoading/LazyImage'
+import LazyImage from '../components/lazyLoading/LazyImage'
+
+
 let styles = {
     sectionOne: about.section + " " + about.one,
     sectionTwo: about.section + " " + about.two,

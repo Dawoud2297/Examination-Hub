@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import identityPath from '../helpers/identityPath';
+import identityPath from '../utils/helpers/identityPath';
 import indicator from '../Styles/LoadingIndicator.module.css'
 import { endIndicator } from '../store/auth';
 

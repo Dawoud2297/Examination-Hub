@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import cProfile from '../../Styles/Register/createprofile.module.css';
 import { letUserLoggedIn, signupKeepLogin } from '../../store/auth';
 import { useNavigate } from 'react-router-dom';
-import identityPath from '../../helpers/identityPath';
+import identityPath from '../../utils/helpers/identityPath';
 import { createProfileReq } from '../../store/createProfile';
 
 const CreateProfile = () => {

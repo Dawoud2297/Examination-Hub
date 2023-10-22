@@ -5,8 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { totalStudentsExamsReq } from '../../../store/studentSubmission'
 import Void from '../../Void'
 import { useNavigate } from 'react-router-dom'
-import identityPath from '../../../helpers/identityPath'
-import sortByDate from '../../../helpers/sortByDate'
+import identityPath from '../../../utils/helpers/identityPath'
+import sortByDate from '../../../utils/helpers/sortByDate'
 import UserProfile from '../UserProfile'
 
 const DashboardStu = (props) => {
