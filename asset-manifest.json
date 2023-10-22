@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Examination-Hub/static/css/main.96c95963.css",
+    "main.js": "/Examination-Hub/static/js/main.52fe0652.js",
+    "static/js/363.1ee6023f.chunk.js": "/Examination-Hub/static/js/363.1ee6023f.chunk.js",
+    "static/js/174.25c9caf2.chunk.js": "/Examination-Hub/static/js/174.25c9caf2.chunk.js",
+    "index.html": "/Examination-Hub/index.html",
+    "static/media/getFetch.cjs": "/Examination-Hub/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.96c95963.css.map": "/Examination-Hub/static/css/main.96c95963.css.map",
+    "main.52fe0652.js.map": "/Examination-Hub/static/js/main.52fe0652.js.map",
+    "363.1ee6023f.chunk.js.map": "/Examination-Hub/static/js/363.1ee6023f.chunk.js.map",
+    "174.25c9caf2.chunk.js.map": "/Examination-Hub/static/js/174.25c9caf2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.96c95963.css",
+    "static/js/main.52fe0652.js"
+  ]
+}
